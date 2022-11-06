@@ -100,13 +100,20 @@ function getAverageIMDBRating(movies) {
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
+  
   let finalObj = {}
   if (movies.length === 0) {
     return finalObj
   } else {
-
+    for (i = 0; i < movies.length; i++) {
+      if (movies[i].rated in finalObj){
+        finalObj[movies[i].rated] += 1
+      } else {
+        finalObj[movies[i].rated] = 1
+      }
+    }
+    return finalObj
   }
-  //////////////////////  SKIPPED ///////////////
 }
 
 /**
@@ -128,7 +135,7 @@ function findById(movies, id) {
     return null
   } else {
     let mapped = []
-    for (i = 0; i<movies.length;i++) {
+    for (i = 0; i < movies.length; i++) {
       if (movies[i].imdbID === id) {
         mapped[0] = movies[i]
       }
@@ -225,9 +232,9 @@ function getBiggestBoxOfficeMovie(movies) {
       result[i] = +result[i]
     }
     result = Math.max(...result)
-    for ( j = 0;j<movies.length;j++) {
+    for (j = 0; j < movies.length; j++) {
       if (String(result) === movies[j].boxOffice.split(",").join("").slice(1))
-      return movies[j].title
+        return movies[j].title
     }
 
   }
