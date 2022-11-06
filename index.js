@@ -127,15 +127,19 @@ function findById(movies, id) {
   if (movies.length === 0) {
     return null
   } else {
-    let mapped = movies
-      .filter(({ imdbID }) => imdbID === id)
+    let mapped = []
+    for (i = 0; i<movies.length;i++) {
+      if (movies[i].imdbID === id) {
+        mapped[0] = movies[i]
+      }
+    }
     if (mapped.length === 0) {
       return null
     } else {
       return mapped[0]
     }
   }
-} //////////////    FIX     ///////
+}
 
 /**
  * filterByGenre()
