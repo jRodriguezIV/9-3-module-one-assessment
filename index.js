@@ -71,7 +71,23 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() { }
+function getAverageIMDBRating(movies) {
+  if (movies.length === 0) {
+    return 0
+  } else {
+    let resultArr = []
+    let finalResult = 0
+    for (let number of movies) {
+      resultArr.push(number.imdbRating)
+    }
+    for (let el of resultArr) {
+      finalResult += Number(el)
+      console.log(el)
+    }
+    finalResult /= resultArr.length
+    return finalResult
+  }
+}
 
 /**
  * countByRating()
@@ -84,7 +100,13 @@ function getAverageIMDBRating() { }
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() { }
+function countByRating(movies) {
+  if (movies.length === 0) {
+    return movies
+  } else {
+
+  }
+}
 
 /**
  * findById()
