@@ -106,7 +106,7 @@ function countByRating(movies) {
   } else {
 
   }
-  //////////////////////SKIPPED///////////////
+  //////////////////////  SKIPPED ///////////////
 }
 
 /**
@@ -135,7 +135,7 @@ function findById(movies, id) {
       return mapped[0]
     }
   }
-}
+} //////////////    FIX     ///////
 
 /**
  * filterByGenre()
@@ -159,13 +159,13 @@ function findById(movies, id) {
  */
 function filterByGenre(movies, genre) {
   let result = []
-for ( i = 0; i < movies.length;i++){
-  for(j=0;j<movies[i].genre.split(", ").length;j++) {
-    if(movies[i].genre.split(", ")[j] === genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase())
-    result.push(movies[i])
+  for (i = 0; i < movies.length; i++) {
+    for (j = 0; j < movies[i].genre.split(", ").length; j++) {
+      if (movies[i].genre.split(", ")[j] === genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase())
+        result.push(movies[i])
+    }
   }
-}
-return result
+  return result
 }
 
 /**
@@ -190,7 +190,15 @@ return result
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() { }
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let result = []
+  for (i = 0; i < movies.length; i++) {
+    if (movies[i].released.split(" ")[2] <= String(year)) {
+      result.push(movies[i])
+    }
+  }
+  return result
+}
 
 /**
  * getBiggestBoxOfficeMovie()
